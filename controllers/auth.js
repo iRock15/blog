@@ -8,7 +8,6 @@ const jwtSignPromise = util.promisify(jwt.sign);
 const signup = async (req, res) => {
   const body = req.body;
   const user = await User.create(body);
-  //   const { password, ...userData } = user.toObject();
   const userObject = user.toObject();
   delete userObject.password;
   res.status(201).json({ message: "User created successfully", userObject });
@@ -27,7 +26,6 @@ const login = async (req, res) => {
     throw new AppError("email or password is incorrect", 401);
   }
 
-  // token logic
   const token = await jwtSignPromise(
     { _id: user._id },
     process.env.TOKEN_SECRET_KEY,

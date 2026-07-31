@@ -25,7 +25,7 @@ mongoose
         password: process.env.SUPERADMIN_PASSWORD,
         role: "superAdmin",
       });
-      console.log("Super Admin Created!");
+      console.log("Super Admin Created");
     }
   })
   .catch((err) => console.log("DB Connection Error:", err));

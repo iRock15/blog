@@ -13,10 +13,8 @@ const auth = require("../middleware/auth");
 
 const router = express.Router();
 
-// CREATE a group
 router.post("/groups", auth, validate(groupSchema), createGroup);
 
-// ADD a member to a group
 router.post(
   "/groups/add-member",
   auth,
@@ -24,7 +22,6 @@ router.post(
   addMember,
 );
 
-// REMOVE a member from a group
 router.post(
   "/groups/remove-member",
   auth,

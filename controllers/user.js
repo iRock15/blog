@@ -11,13 +11,13 @@ const createAdmin = async (req, res, next) => {
     image: imagePath,
     role: "admin",
   });
-  res.status(201).json({ message: "User created successfully", user });
+  res.status(201).json({ message: "User created successfully!", user });
 };
 
 const getAllUsers = async (req, res, next) => {
   console.log(req.user);
   const users = await User.find({});
-  res.status(200).json({ message: "Users retrieved successfully", users });
+  res.status(200).json({ message: "Users retrieved successfully!", users });
 };
 const getOneUser = async (req, res) => {
   const userId = req.params.id;
@@ -26,7 +26,7 @@ const getOneUser = async (req, res) => {
   if (!user) {
     throw new AppError("User not found", 404);
   }
-  res.status(200).json({ message: "User retrieved successfully", user });
+  res.status(200).json({ message: "User retrieved successfully!", user });
 };
 
 const updateUserPutMethod = async (req, res) => {
@@ -45,7 +45,7 @@ const updateUserPutMethod = async (req, res) => {
     throw new AppError("User not found", 404);
   }
 
-  res.status(200).json({ message: "User updated successfully", user });
+  res.status(200).json({ message: "User updated successfully!", user });
 };
 const upadateUserPatchMethod = async (req, res) => {
   console.log("hamada");
@@ -58,7 +58,7 @@ const upadateUserPatchMethod = async (req, res) => {
     throw new AppError("User not found", 404);
   }
 
-  res.status(200).json({ message: "User updated successfully", user });
+  res.status(200).json({ message: "User updated successfully!", user });
 };
 
 const deleteUser = async (req, res) => {
@@ -72,7 +72,7 @@ const deleteUser = async (req, res) => {
   }
   await Post.deleteMany({ author: userId });
 
-  res.status(200).json({ message: "User deleted successfully", user });
+  res.status(200).json({ message: "User deleted successfully!", user });
 };
 
 module.exports = {

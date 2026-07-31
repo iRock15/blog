@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     content: { type: String, required: true },
-    images: [{ type: String }], // Changed from a single string to an array for multiple images
+    images: [{ type: String }],
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -13,10 +13,10 @@ const postSchema = new mongoose.Schema(
     group: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Group",
-      default: null, // Null means it's a global post
+      default: null,
     },
   },
-  { timestamps: true }, // Added timestamps for the createdAt sorting requirement
+  { timestamps: true },
 );
 
 const Post = mongoose.model("Post", postSchema);
